@@ -1,0 +1,52 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# VS Code settings
+.vscode/
+
+# macOS
+.DS_Store
+
+# Logs and local data
+*.log
+*.out
+
+# Python dotenv files (API keys, secrets)
+.env
+.env.*
+
+# Vector DB storage (FAISS, ChromaDB)
+vector_store/
+chroma_db/
+chroma/
+*.faiss
+*.pkl
+
+# Hugging Face cache
+~/.cache/huggingface/
+*.bin
+*.pt
+
+# Model outputs or embeddings (if stored as files)
+embeddings/
+outputs/
+retrieved_chunks/
+temp/
+
+# Data files
+data/
+
+# System files
+Thumbs.db
+ehthumbs.db
