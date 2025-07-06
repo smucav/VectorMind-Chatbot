@@ -101,6 +101,39 @@ drive.mount('/content/drive')
 * Visualizations: Product distribution, length histograms
 
 ---
+## ✍️ 2: Text Chunking, Embedding, and Vector Store Indexing
+
+### 📌 Overview
+
+Processed 470,118 rows to chunk complaint narratives, generate vector embeddings, and index them in ChromaDB, using iterative batching to handle 4GB RAM limitations.
+
+### 🛠️ Key Activities
+
+* Chunking: Used RecursiveCharacterTextSplitter with chunk_size=300 and chunk_overlap=50; tested chunk sizes (200, 300, 500) for trade-offs in context retention.
+
+* Embedding: Leveraged all-MiniLM-L6-v2, embedding in batches of 50 using HuggingFaceEmbeddings.
+
+* Indexing: Stored in ChromaDB with normalized metadata:
+
+* complaint_id, product_category, issue, company, date_received, source: cfpb
+
+* Validation: Queried: “What are common issues with BNPL?” — results showed strong text + metadata alignment.
+
+### 💡 Key Insights
+
+* chunk_size=300 balances semantic coherence with retrieval granularity.
+
+* Iterative embedding strategy works within 4GB RAM constraints.
+
+* Metadata design supports traceability (KPI 2 compliance).
+
+📦 Deliverables
+
+* 📓 Notebook: `notebooks/chunk_embed_index.ipynb`
+
+* 🧠 Vector Store: `vector_store/chroma_db`
+
+* 📊 Visualization: `vector_store/chunk_size_experiment.png`
 
 
 ## 🔗 References
