@@ -186,6 +186,49 @@ The pipeline is evaluated on a set of representative questions, demonstrating re
 - **Evaluation Report:** `vector_store/task3_evaluation.md` — Detailed question-answer evaluation table with scoring and analysis
 
 
+# 4: Interactive Chat Interface
+
+## Overview
+
+Developed a user-friendly chat interface using **Gradio** to allow non-technical users to interact with the RAG system. This interface improves usability, accessibility, and user trust, directly supporting **KPI 2** (stakeholder engagement and transparency).
+
+---
+
+## Key Activities
+
+- **Interface Design**  
+  Built an interactive Gradio app with:
+  - Text input box for user queries  
+  - “Ask” and “Clear” buttons  
+  - Output area for the generated answer  
+  - Collapsible section showing retrieved chunks and their metadata (e.g., `product_category`, `issue`)
+
+- **Backend Integration**  
+  Integrated the RAG core function `run_rag_pipeline` from **Task 3** to process user queries and return relevant answers.
+
+- **Trust & Usability Features**  
+  Displayed supporting complaint excerpts along with metadata to allow users to verify and interpret the model’s response.
+
+- **Performance Optimization**  
+  Utilized GPU acceleration for embedding and implemented memory cleanup to ensure smooth operation on Google Colab.
+
+---
+
+## Key Insights
+
+- ✅ **Intuitive Interface**: Enables easy access for non-technical users to query the complaints dataset — fully aligned with **KPI 2**.
+
+- ✅ **Source Transparency**: Visualizing retrieved complaint chunks builds **trust** in generated answers.
+
+- ✅ **Responsive Performance**: Fast query-to-answer time (~5–10 seconds) meets **KPI 1** for responsiveness.
+
+---
+
+## Deliverables
+
+- **Script**: [`src/app.py`](src/app.py) — Gradio-based interactive interface  
+- **Screenshot**: [`reports/chat_interface_screenshot.png`](reports/chat_interface_screenshot.png) — Demonstration of the working UI
+
 
 ## 🔗 References
 
