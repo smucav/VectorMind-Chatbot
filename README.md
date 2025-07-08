@@ -136,6 +136,57 @@ Processed 470,118 rows to chunk complaint narratives, generate vector embeddings
 * 📊 Visualization: `vector_store/chunk_size_experiment.png`
 
 
+# 3: Retrieval-Augmented Generation (RAG) Core Logic and Evaluation
+
+## Overview
+
+This task implements a Retrieval-Augmented Generation (RAG) pipeline to enhance customer complaint analysis for CrediTrust. The system retrieves relevant complaint excerpts and generates context-aware, professional answers using the Mistral-7B-Instruct-v0.2 model via Hugging Face’s Inference API.
+
+The pipeline is evaluated on a set of representative questions, demonstrating retrieval effectiveness and answer quality.
+
+---
+
+## Key Activities
+
+- **Retriever**  
+  Utilizes the `sentence-transformers/all-MiniLM-L6-v2` model on GPU to embed user queries. Retrieves the top 5 most relevant complaint chunks from a ChromaDB vector store.
+
+- **Prompt Engineering**  
+  Designed a targeted prompt template instructing Mistral-7B to act as a financial analyst for CrediTrust, providing answers strictly based on the retrieved complaint context.
+
+- **Generator**  
+  Combines retrieved text chunks and user questions into the prompt, generating concise, accurate answers through Hugging Face’s Inference API.
+
+- **Evaluation**  
+  Tested the pipeline with 5 representative questions (e.g., “What are common issues with Buy Now, Pay Later (BNPL) services?”). Produced a detailed evaluation table including:  
+  - Question  
+  - Generated Answer  
+  - Retrieved Sources  
+  - Quality Score (1 to 5)  
+  - Comments and Analysis  
+
+- **Optimization**  
+  Leveraged GPU acceleration for embedding computations and implemented memory management best practices to ensure smooth operation within Google Colab’s free tier constraints.
+
+---
+
+## Key Insights
+
+- The retrieval mechanism is effective for product-specific queries such as BNPL and credit cards, ensuring relevant context is supplied to the model.
+
+- Mistral-7B generates concise, professional, and contextually grounded responses, although answer detail may depend on the quality and quantity of retrieved information.
+
+- Evaluation results identify opportunities for prompt refinement and highlight key performance indicators (KPIs) related to answer relevance and contextual accuracy.
+
+---
+
+## Deliverables
+
+- **Script:** `src/rag_pipeline.py` — Complete RAG pipeline implementation  
+- **Evaluation Report:** `vector_store/task3_evaluation.md` — Detailed question-answer evaluation table with scoring and analysis
+
+
+
 ## 🔗 References
 
 * [CFPB Consumer Complaints](https://www.consumerfinance.gov/data-research/consumer-complaints/)
